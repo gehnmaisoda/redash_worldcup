@@ -32,6 +32,7 @@ services:
     environment:
       <<: *redash-environment
       PYTHONUNBUFFERED: 0
+
   scheduler:
     <<: *redash-service
     command: dev_scheduler
@@ -39,6 +40,7 @@ services:
       - server
     environment:
       <<: *redash-environment
+
   worker:
     <<: *redash-service
     command: dev_worker
@@ -47,9 +49,11 @@ services:
     environment:
       <<: *redash-environment
       PYTHONUNBUFFERED: 0
+
   redis:
     image: redis:3-alpine
     restart: unless-stopped
+
   postgres:
     image: postgres:9.5-alpine
     # The following turns the DB into less durable, but gains significant performance improvements for the tests run (x3

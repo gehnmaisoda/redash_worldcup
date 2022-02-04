@@ -17,6 +17,7 @@ client/dist
 _build
 .vscode
 .env
+yarn-error.log
 
 dump.rdb
 
